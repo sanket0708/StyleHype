@@ -19,7 +19,7 @@ const Topbar = () => {
           </a>
         </div>
         <div className="text-xs text-center flex-grow select-none">
-          <span className="uppercase tracking-widest text-gray-200">Global delivery available — swift and dependable service!</span>
+          <span className="uppercase tracking-widest text-gray-200">Global delivery available</span>
         </div>
         <div className="text-xs hidden md:block">
           <a href="tel:+1234567890" className="transition hover:text-yellow-400 hover:underline duration-200">
