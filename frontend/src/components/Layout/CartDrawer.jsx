@@ -1,10 +1,11 @@
 import React from "react";
 import { IoMdClose } from "react-icons/io";
+import CartContents from "../Cart/CartContents";
 
 const CartDrawer = ({ drawerOpen, toggleCartDrawer }) => {
   return (
     <div
-      className={`fixed top-0 right-0 w-3/4 sm:w-1/2 md:w-1/4 h-full bg-white border-l border-gray-200 shadow-2xl rounded-l-2xl transform transition-transform duration-300 flex flex-col z-50 ${
+      className={`fixed top-0 right-0 w-3/4 sm:w-1/2 md:w-[30rem] h-full bg-white border-l border-gray-200 shadow-2xl rounded-l-2xl transform transition-transform duration-300 flex flex-col z-50 ${
         drawerOpen ? "translate-x-0" : "translate-x-full"
       }`}
     >
@@ -17,6 +18,7 @@ const CartDrawer = ({ drawerOpen, toggleCartDrawer }) => {
       <div className="flex-grow p-6 overflow-y-auto">
         <h2 className="text-lg font-extrabold uppercase tracking-widest text-gray-900 mb-6">Your Cart</h2>
         {/* Component for the details */}
+        <CartContents />
       </div>
 
       <div className="p-6 bg-white border-t border-gray-100 sticky bottom-0">
