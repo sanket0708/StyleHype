@@ -61,8 +61,6 @@ const ProductDetails = () => {
   const [quantity, setQuantity] = useState(1);
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
 
-  
-
   const handleQuantityChange = (action) => {
     if (action === "plus") setQuantity((prev) => prev + 1);
     if (action === "minus" && quantity > 1) setQuantity((prev) => prev - 1);
@@ -105,11 +103,12 @@ const ProductDetails = () => {
           <div className="md:w-1/2">
             <div className="mb-4 group relative overflow-hidden rounded-xl">
               {mainImage && (
-              <img
-                src={mainImage}
-                alt="Main Product"
-                className="w-full h-auto object-cover rounded-xl transition-transform duration-300 group-hover:scale-105"
-              />)}
+                <img
+                  src={mainImage}
+                  alt="Main Product"
+                  className="w-full h-auto object-cover rounded-xl transition-transform duration-300 group-hover:scale-105"
+                />
+              )}
               <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-amber-500/10" />
             </div>
           </div>
@@ -233,8 +232,12 @@ const ProductDetails = () => {
         </div>
         <div className="mt-20">
           <h2 className="text-2xl text-center font-medium mb-4 lg:text-3xl">
-            You May Also Like
+            You may also like
           </h2>
+          <p className="text-sm sm:text-base px-2 lg:text-lg text-gray-600 mt-1 sm:mt-2 text-center mb-5">
+            Handpicked pieces curated to complement your style—explore more
+            favorites just for you.
+          </p>
           <ProductGrid products={similarProducts} />
         </div>
       </div>

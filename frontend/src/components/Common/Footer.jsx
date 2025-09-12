@@ -7,126 +7,158 @@ import { FiPhoneCall } from "react-icons/fi";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-50 border-t border-gray-200 py-12 sm:py-16">
-      <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 px-4 lg:px-0">
-        <div className="space-y-4">
-          <h3 className="text-lg font-semibold text-gray-800 mb-4">Newsletter</h3>
-          <p className="text-gray-600 text-sm leading-relaxed">
-            Get early access to new arrivals, exclusive deals, and more.
-          </p>
-          <p className="font-medium text-sm text-gray-700 mb-6">
-            Join us and receive 10% off your initial order.
-          </p>
-
-          <form className="flex flex-col sm:flex-row space-y-2 sm:space-y-0">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="flex-1 p-3 text-sm border border-gray-300 rounded-l-md sm:rounded-l-md sm:rounded-r-none focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-all duration-200"
-              required
-            />
-            <button
-              type="submit"
-              className="bg-amber-500 text-white px-6 py-3 text-sm font-medium rounded-r-md sm:rounded-l-none sm:rounded-r-md hover:bg-amber-600 transition-all duration-200 cursor-pointer transform hover:scale-105"
-            >
-              Subscribe
-            </button>
-          </form>
-        </div>
-
-        <div className="space-y-4">
-          <h3 className="text-lg font-semibold text-gray-800 mb-4">Shop</h3>
-          <ul className="space-y-3">
-            <li>
-              <Link to="#" className="text-gray-600 hover:text-amber-500 transition-colors duration-200 text-sm font-medium">
-                Men's Top Wear
-              </Link>
-            </li>
-            <li>
-              <Link to="#" className="text-gray-600 hover:text-amber-500 transition-colors duration-200 text-sm font-medium">
-                Women's Top Wear
-              </Link>
-            </li>
-            <li>
-              <Link to="#" className="text-gray-600 hover:text-amber-500 transition-colors duration-200 text-sm font-medium">
-                Men's Bottom Wear
-              </Link>
-            </li>
-            <li>
-              <Link to="#" className="text-gray-600 hover:text-amber-500 transition-colors duration-200 text-sm font-medium">
-                Women's Bottom Wear
-              </Link>
-            </li>
-          </ul>
-        </div>
-
-        <div className="space-y-4">
-          <h3 className="text-lg font-semibold text-gray-800 mb-4">Support</h3>
-          <ul className="space-y-3">
-            <li>
-              <Link to="#" className="text-gray-600 hover:text-amber-500 transition-colors duration-200 text-sm font-medium">
-                Contact Us
-              </Link>
-            </li>
-            <li>
-              <Link to="#" className="text-gray-600 hover:text-amber-500 transition-colors duration-200 text-sm font-medium">
-                About
-              </Link>
-            </li>
-            <li>
-              <Link to="#" className="text-gray-600 hover:text-amber-500 transition-colors duration-200 text-sm font-medium">
-                FAQs
-              </Link>
-            </li>
-            <li>
-              <Link to="#" className="text-gray-600 hover:text-amber-500 transition-colors duration-200 text-sm font-medium">
-                Features
-              </Link>
-            </li>
-          </ul>
-        </div>
-
-        <div className="space-y-4">
-          <h3 className="text-lg font-semibold text-gray-800 mb-4">Follow Us</h3>
-          <div className="flex items-center space-x-4 mb-6">
-            <a
-              href="https://www.facebook.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 hover:bg-amber-100 rounded-full transition-all duration-200 hover:scale-110"
-            >
-              <TbBrandMeta className="h-5 w-5 text-gray-600 hover:text-amber-500 transition-colors duration-200" />
-            </a>
-            <a
-              href="https://www.instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 hover:bg-amber-100 rounded-full transition-all duration-200 hover:scale-110"
-            >
-              <IoLogoInstagram className="h-5 w-5 text-gray-600 hover:text-amber-500 transition-colors duration-200" />
-            </a>
-            <a
-              href="https://www.twitter.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-2 hover:bg-amber-100 rounded-full transition-all duration-200 hover:scale-110"
-            >
-              <RiTwitterXLine className="h-4 w-4 text-gray-600 hover:text-amber-500 transition-colors duration-200" />
-            </a>
+    <footer className="bg-gradient-to-br from-gray-600 via-gray-700 to-gray-600 text-white">
+      <div className="container mx-auto max-w-7xl px-4 lg:px-8 xl:px-16 2xl:px-24 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+          {/* Brand Section */}
+          <div className="lg:col-span-1 space-y-6">
+            <div>
+              <h2 className="text-2xl font-bold text-amber-400 tracking-wider mb-4">STYLEHYPE</h2>
+              <p className="text-gray-300 text-sm leading-relaxed mb-6">
+                Elevate your style with premium fashion that speaks to your unique personality.
+              </p>
+            </div>
+            
+            {/* Newsletter */}
+            <div>
+              <h3 className="text-lg font-semibold text-white mb-4">Stay Updated</h3>
+              <form className="space-y-3">
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  className="w-full p-3 text-sm bg-gray-700/50 border border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400 transition-all duration-300 placeholder-gray-400"
+                  required
+                />
+                <button
+                  type="submit"
+                  className="w-full bg-amber-500 cursor-pointer hover:bg-black text-white px-4 py-3 text-sm font-medium rounded-xl hover:from-amber-700 hover:to-amber-800 transition-all duration-300 shadow-lg hover:shadow-xl"
+                >
+                  Subscribe
+                </button>
+              </form>
+            </div>
           </div>
-          <div className="space-y-2">
-            <p className="text-gray-600 text-sm font-medium">Call Us</p>
-            <p className="text-gray-700 font-medium flex items-center">
-              <FiPhoneCall className="mr-2 text-amber-500" />
-              +1 (984) 768-3048
-            </p>
+
+          {/* Quick Links */}
+          <div className="space-y-6">
+            <h3 className="text-lg font-semibold text-white mb-4">Quick Links</h3>
+            <ul className="space-y-3">
+              <li>
+                <Link to="#" className="text-gray-300 hover:text-amber-400 transition-colors duration-300 text-sm font-medium">
+                  New Arrivals
+                </Link>
+              </li>
+              <li>
+                <Link to="#" className="text-gray-300 hover:text-amber-400 transition-colors duration-300 text-sm font-medium">
+                  Best Sellers
+                </Link>
+              </li>
+              <li>
+                <Link to="#" className="text-gray-300 hover:text-amber-400 transition-colors duration-300 text-sm font-medium">
+                  Sale
+                </Link>
+              </li>
+              <li>
+                <Link to="#" className="text-gray-300 hover:text-amber-400 transition-colors duration-300 text-sm font-medium">
+                  Collections
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Support */}
+          <div className="space-y-6">
+            <h3 className="text-lg font-semibold text-white mb-4">Support</h3>
+            <ul className="space-y-3">
+              <li>
+                <Link to="#" className="text-gray-300 hover:text-amber-400 transition-colors duration-300 text-sm font-medium">
+                  Contact Us
+                </Link>
+              </li>
+              <li>
+                <Link to="#" className="text-gray-300 hover:text-amber-400 transition-colors duration-300 text-sm font-medium">
+                  Size Guide
+                </Link>
+              </li>
+              <li>
+                <Link to="#" className="text-gray-300 hover:text-amber-400 transition-colors duration-300 text-sm font-medium">
+                  Shipping Info
+                </Link>
+              </li>
+              <li>
+                <Link to="#" className="text-gray-300 hover:text-amber-400 transition-colors duration-300 text-sm font-medium">
+                  Returns
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Contact & Social */}
+          <div className="space-y-6">
+            <h3 className="text-lg font-semibold text-white mb-4">Connect</h3>
+            
+            {/* Contact Info */}
+            <div className="space-y-4">
+              <div className="flex items-center space-x-3">
+                <FiPhoneCall className="h-4 w-4 text-amber-400" />
+                <span className="text-gray-300 text-sm">+1 (984) 768-3048</span>
+              </div>
+              <div>
+                <p className="text-gray-300 text-sm">support@stylehype.com</p>
+              </div>
+            </div>
+
+            {/* Social Media */}
+            <div>
+              <p className="text-gray-300 text-sm mb-3">Follow us</p>
+              <div className="flex items-center space-x-3">
+                <a
+                  href="https://www.instagram.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 bg-gray-700/50 hover:bg-amber-600 rounded-lg transition-all duration-300 hover:scale-110"
+                >
+                  <IoLogoInstagram className="h-4 w-4 text-gray-300 hover:text-white" />
+                </a>
+                <a
+                  href="https://www.twitter.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 bg-gray-700/50 hover:bg-amber-600 rounded-lg transition-all duration-300 hover:scale-110"
+                >
+                  <RiTwitterXLine className="h-4 w-4 text-gray-300 hover:text-white" />
+                </a>
+                <a
+                  href="https://www.facebook.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 bg-gray-700/50 hover:bg-amber-600 rounded-lg transition-all duration-300 hover:scale-110"
+                >
+                  <TbBrandMeta className="h-4 w-4 text-gray-300 hover:text-white" />
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div className="container mx-auto mt-12 px-4 lg:px-0 border-t border-gray-200 pt-6">
-        <p className="text-gray-500 text-sm text-center">
-          © 2025, STYLEHYPE. All Rights Reserved.
-        </p>
+      
+      {/* Bottom Bar */}
+      <div className="border-t border-gray-700">
+        <div className="container mx-auto max-w-7xl px-4 lg:px-8 xl:px-16 2xl:px-24 py-6">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <p className="text-gray-400 text-sm">
+              © 2025 STYLEHYPE. All rights reserved.
+            </p>
+            <div className="flex items-center space-x-6">
+              <Link to="#" className="text-gray-400 hover:text-amber-400 transition-colors duration-300 text-sm">
+                Privacy Policy
+              </Link>
+              <Link to="#" className="text-gray-400 hover:text-amber-400 transition-colors duration-300 text-sm">
+                Terms of Service
+              </Link>
+            </div>
+          </div>
+        </div>
       </div>
     </footer>
   );

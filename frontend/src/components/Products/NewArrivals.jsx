@@ -162,8 +162,8 @@ const NewArrivals = () => {
   }, []);
 
   return (
-    <section className="py-16 px-4 lg:px-0">
-      <div className="container mx-auto mb-8 relative">
+    <section className="py-16 px-4 lg:px-8 xl:px-16 2xl:px-24">
+      <div className="container mx-auto max-w-7xl mb-8 relative">
         <div className="grid grid-cols-1 items-center gap-3 sm:grid-cols-[1fr_auto_1fr] sm:items-end sm:gap-4">
           <div className="hidden sm:block"></div>
           <div className="justify-self-center text-center">
@@ -205,7 +205,7 @@ const NewArrivals = () => {
       </div>
       <div
         ref={scrollRef}
-        className="container mx-auto overflow-x-auto scrollbar-hide flex gap-5 sm:gap-6 relative snap-x snap-mandatory select-none cursor-grab active:cursor-grabbing scroll-smooth [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+        className="container mx-auto max-w-9xl overflow-x-auto scrollbar-hide flex gap-5 sm:gap-6 relative snap-x snap-mandatory select-none cursor-grab active:cursor-grabbing scroll-smooth [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUpOrLeave}
@@ -233,7 +233,7 @@ const NewArrivals = () => {
           </div>
         ))}
       </div>
-      <div className="container mx-auto mt-4">
+      <div className="container mx-auto max-w-7xl mt-4">
         <div className="h-2 w-full bg-gray-200 rounded-full overflow-hidden">
           <div
             className="h-full bg-gray-900 rounded-full transition-all duration-200"

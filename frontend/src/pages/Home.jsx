@@ -5,6 +5,7 @@ import NewArrivals from "../components/Products/NewArrivals";
 import ProductDetails from "../components/Products/ProductDetails";
 import ProductGrid from "../components/Products/ProductGrid";
 import FeaturedCollection from "../components/Products/FeaturedCollection";
+import FeaturesSection from "../components/Products/FeaturesSection";
 
 const placeholderProducts = [
   {
@@ -63,16 +64,27 @@ const Home = () => {
       <Hero />
       <GenderCollectionSection />
       <NewArrivals />
-      <h2 className="text-2xl text-center font-bold mb-4 lg:text-4xl">BEST SELLER</h2>
+      <h2 className="text-2xl text-center font-bold mb-4 lg:text-4xl">
+        BEST SELLER
+      </h2>
+      <p className=" text-sm sm:text-base px-2 lg:text-lg text-gray-600 mt-1 sm:mt-2 text-center mb-5">
+        Our best-selling pieces—loved for their timeless style, flawless fit,
+        and everyday ease.
+      </p>
       <ProductDetails />
 
       <div className="container mx-auto">
         <h2 className="text-3xl text-center font-bold mb-4 lg:text-4xl">
-          Top Wears for Women
+          Women's Style Staples
         </h2>
+        <p className="text-sm sm:text-base px-2 lg:text-lg text-gray-600 mt-1 sm:mt-2 text-center mb-5">
+          Empowering women through fashion—discover elevated essentials designed
+          for confidence, comfort, and style.
+        </p>
         <ProductGrid products={placeholderProducts} />
       </div>
       <FeaturedCollection />
+      <FeaturesSection />
     </div>
   );
 };

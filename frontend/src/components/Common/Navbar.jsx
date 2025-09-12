@@ -70,7 +70,7 @@ const Navbar = () => {
         {/* icons */}
         <div className="flex items-center space-x-5">
           <Link
-            to="/profile"
+            to="/login"
             className="hover:text-amber-500 transition-all duration-200"
           >
             <HiOutlineUser className="h-6 w-6 text-gray-700" />
