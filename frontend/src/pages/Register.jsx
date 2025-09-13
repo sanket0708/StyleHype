@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import signin from "../assets/signin.png";
+import signup from "../assets/signup.png";
 import { Link } from "react-router-dom";
 
-const Login = () => {
+const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -40,16 +41,25 @@ const Login = () => {
 
                 <div className="relative z-10">
                   <h2 className="text-xl sm:text-2xl font-bold text-gray-800 text-center mb-2">
-                    👋 Hey there, welcome back!
+                    👋 Hey there, welcome!
                   </h2>
                   <p className="text-gray-600 text-center mb-6 sm:mb-8 text-sm">
-                    Sign in to continue your fashion journey
+                    Sign up to start your fashion journey
                   </p>
 
-                  <form
-                    onSubmit={handleSubmit}
-                    className="space-y-4 sm:space-y-6"
-                  >
+                  <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+                    <div className="group">
+                      <label className="block text-sm font-semibold mb-2 sm:mb-3 text-gray-700 tracking-wide">
+                        Name
+                      </label>
+                      <input
+                        type="text"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        className="w-full p-3 sm:p-4 border border-amber-200/70 rounded-xl sm:rounded-2xl focus:outline-none focus:ring-2 focus:ring-amber-400/50 focus:border-amber-400 transition-all duration-300 bg-amber-50/30 placeholder-gray-500 group-hover:bg-amber-50/50"
+                        placeholder="Enter your name"
+                      />
+                    </div>
                     <div className="group">
                       <label className="block text-sm font-semibold mb-2 sm:mb-3 text-gray-700 tracking-wide">
                         Email Address
@@ -80,17 +90,17 @@ const Login = () => {
                       type="submit"
                       className="w-full cursor-pointer bg-gradient-to-r from-amber-500 to-amber-500 text-white p-3 sm:p-4 rounded-xl sm:rounded-2xl font-semibold uppercase tracking-wider shadow-lg hover:shadow-xl hover:from-amber-600 hover:to-amber-700 transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98]"
                     >
-                      Sign In
+                      Sign Up
                     </button>
                   </form>
 
                   <p className="mt-4 sm:mt-6 text-center text-sm text-gray-600">
                     Don't have an account?{" "}
                     <Link
-                      to="/register"
+                      to="/login"
                       className="text-amber-600 hover:text-amber-700 font-semibold transition-colors duration-300"
                     >
-                      Create Account
+                      Login
                     </Link>
                   </p>
                 </div>
@@ -106,8 +116,8 @@ const Login = () => {
                 <div className="absolute -inset-2 sm:-inset-4 bg-gradient-to-r from-amber-400 to-amber-600 rounded-2xl sm:rounded-3xl blur-lg opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
                 <div className="relative bg-white/90 backdrop-blur-sm p-4 sm:p-6 rounded-2xl sm:rounded-3xl shadow-2xl">
                   <img
-                    src={signin}
-                    alt="Signin image"
+                    src={signup}
+                    alt="Signup image"
                     className="w-full h-[300px] sm:h-[400px] lg:h-[500px] object-cover rounded-xl sm:rounded-2xl shadow-lg group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
@@ -124,4 +134,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;

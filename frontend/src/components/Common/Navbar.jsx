@@ -43,7 +43,7 @@ const Navbar = () => {
         {/* Center nav links */}
         <div className="hidden md:flex space-x-8">
           <Link
-            to="#"
+            to="/collections/all"
             className="text-gray-700 hover:text-amber-500 text-sm font-medium uppercase tracking-widest transition-all duration-200 hover:underline hover:underline-offset-4 hover:scale-105"
           >
             Men
@@ -70,7 +70,7 @@ const Navbar = () => {
         {/* icons */}
         <div className="flex items-center space-x-5">
           <Link
-            to="/login"
+            to="/profile"
             className="hover:text-amber-500 transition-all duration-200"
           >
             <HiOutlineUser className="h-6 w-6 text-gray-700" />
