@@ -207,7 +207,7 @@ const Checkout = () => {
         </div>
 
         {/* Right: Order Summary */}
-        <div className="bg-gray-50 rounded-lg border border-gray-200 p-6 sm:p-8 lg:sticky lg:top-24 h-max">
+        <div className="bg-gray-50 rounded-lg border border-gray-200 p-6 sm:p-8 h-max">
           <h3 className="text-sm uppercase tracking-widest text-gray-700 mb-4">Order Summary</h3>
           <div className="divide-y divide-gray-200">
             {cart.products.map((product, index) => (
