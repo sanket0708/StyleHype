@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import PayPalButton from "./PayPalButton";
+import { toast } from "sonner";
+import StripeButton from "./StripeButton";
 
 const cart = {
   products: [
@@ -42,8 +43,20 @@ const Checkout = () => {
   };
 
   const handlePaymentSuccess = (details) => {
-    console.log("Payment successful", details);
-    navigate("/order-confirmation");
+    // console.log("Payment successful", details);
+    toast.success("Payment successful! Redirecting to order confirmation...", {
+      duration: 2000,
+    });
+    setTimeout(() => {
+      navigate("/order-confirmation");
+    }, 1500);
+  };
+
+  const handlePaymentError = (error) => {
+    // console.error("Payment error:", error);
+    toast.error("Payment failed: " + (error.message || "Please try again later"), {
+      duration: 4000,
+    });
   };
 
   return (
@@ -185,26 +198,29 @@ const Checkout = () => {
             </div>
 
             <div className="pt-2">
-              {!checkoutId ? (
+              {!checkoutId && (
                 <button
                   type="submit"
                   className="w-full bg-black text-white py-3 rounded transition-colors duration-200 hover:bg-gray-900 uppercase tracking-widest text-sm"
                 >
                   Continue to Payment
                 </button>
-              ) : (
-                <div className="mt-2">
-                  <h3 className="text-sm uppercase tracking-widest text-gray-700 mb-4">Pay with PayPal</h3>
-                  <PayPalButton
-                    amount={100}
-                    onSuccess={handlePaymentSuccess}
-                    onError={(err) => alert("Payment failed, Try again later!")}
-                  />
-                </div>
               )}
             </div>
           </form>
         </div>
+
+        {/* Payment Section - Outside the form */}
+        {checkoutId && (
+          <div className="bg-white rounded-lg border border-gray-200 shadow-sm shadow-gray-900/5 p-6 sm:p-8 mt-6">
+            <h3 className="text-sm uppercase tracking-widest text-gray-700 mb-4">Complete Payment</h3>
+            <StripeButton
+              amount={cart.totalPrice}
+              onSuccess={handlePaymentSuccess}
+              onError={handlePaymentError}
+            />
+          </div>
+        )}
 
         {/* Right: Order Summary */}
         <div className="bg-gray-50 rounded-lg border border-gray-200 p-6 sm:p-8 h-max">

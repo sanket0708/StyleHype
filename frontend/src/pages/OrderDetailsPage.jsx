@@ -11,7 +11,7 @@ const OrderDetailsPage = () => {
       createdAt: new Date(),
       isPaid: true,
       isDelivered: false,
-      paymentMethod: "PayPal",
+      paymentMethod: "Stripe",
       shippingMethod: "Standard",
       shippingAddress: { city: "California", country: "USA" },
       orderItems: [
