@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 
 const MyOrdersPage = () => {
   const [orders, setOrders] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     //fetching orders
@@ -34,27 +37,31 @@ const MyOrdersPage = () => {
           isPaid: true,
         },
         {
-            _id: "78910",
-            createdAt: new Date(),
-            shippingAddress: { city: "New York", country: "USA" },
-            orderItems: [
-              {
-                name: "Product 2",
-                image: "https://picsum.photos/500/500?random=3",
-              },
-            ],
-            totalPrice: 100,
-            isPaid: true,
-          },
+          _id: "78910",
+          createdAt: new Date(),
+          shippingAddress: { city: "New York", country: "USA" },
+          orderItems: [
+            {
+              name: "Product 2",
+              image: "https://picsum.photos/500/500?random=3",
+            },
+          ],
+          totalPrice: 100,
+          isPaid: true,
+        },
       ];
 
       setOrders(mockOrders);
     }, 1000);
   }, []);
 
+  const handleRowClick = (orderId) => {
+    navigate(`/order/${orderId}`);
+  };
+
   return (
-    <div className="w-full">
-      <div className="bg-white/80 backdrop-blur-sm rounded-2xl sm:rounded-3xl shadow-2xl border border-amber-100/50 overflow-hidden">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div className="max-w-6xl mx-auto bg-white rounded-lg border border-gray-200 shadow-sm shadow-gray-900/5 overflow-hidden">
         {/* Header */}
         <div className="bg-gradient-to-r from-amber-500 to-amber-600 px-6 py-4">
           <h2 className="text-xl sm:text-2xl font-bold text-white uppercase tracking-wider">
@@ -70,13 +77,27 @@ const MyOrdersPage = () => {
           <table className="min-w-full text-left text-gray-500">
             <thead className="bg-amber-50/50 text-xs uppercase text-gray-700 border-b border-amber-100">
               <tr>
-                <th className="py-3 px-4 sm:py-4 font-semibold tracking-wider">Image</th>
-                <th className="py-3 px-4 sm:py-4 font-semibold tracking-wider">Order ID</th>
-                <th className="py-3 px-4 sm:py-4 font-semibold tracking-wider">Created</th>
-                <th className="py-3 px-4 sm:py-4 font-semibold tracking-wider">Shipping</th>
-                <th className="py-3 px-4 sm:py-4 font-semibold tracking-wider">Items</th>
-                <th className="py-3 px-4 sm:py-4 font-semibold tracking-wider">Price</th>
-                <th className="py-3 px-4 sm:py-4 font-semibold tracking-wider">Status</th>
+                <th className="py-3 px-4 sm:py-4 font-semibold tracking-wider">
+                  Image
+                </th>
+                <th className="py-3 px-4 sm:py-4 font-semibold tracking-wider">
+                  Order ID
+                </th>
+                <th className="py-3 px-4 sm:py-4 font-semibold tracking-wider">
+                  Created
+                </th>
+                <th className="py-3 px-4 sm:py-4 font-semibold tracking-wider">
+                  Shipping
+                </th>
+                <th className="py-3 px-4 sm:py-4 font-semibold tracking-wider">
+                  Items
+                </th>
+                <th className="py-3 px-4 sm:py-4 font-semibold tracking-wider">
+                  Price
+                </th>
+                <th className="py-3 px-4 sm:py-4 font-semibold tracking-wider">
+                  Status
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -84,6 +105,7 @@ const MyOrdersPage = () => {
                 orders.map((order) => (
                   <tr
                     key={order._id}
+                    onClick={() => handleRowClick(order._id)}
                     className="border-b border-amber-50 hover:bg-amber-50/30 transition-colors duration-200 cursor-pointer group"
                   >
                     <td className="py-3 px-4">
@@ -139,12 +161,26 @@ const MyOrdersPage = () => {
                   <td colSpan={7} className="py-12 px-4 text-center">
                     <div className="flex flex-col items-center">
                       <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mb-4">
-                        <svg className="w-8 h-8 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                        <svg
+                          className="w-8 h-8 text-amber-600"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
+                          />
                         </svg>
                       </div>
-                      <h3 className="text-lg font-semibold text-gray-900 mb-2">No orders yet!</h3>
-                      <p className="text-gray-600 text-sm">Start shopping to see your orders here</p>
+                      <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                        No orders yet!
+                      </h3>
+                      <p className="text-gray-600 text-sm">
+                        Start shopping to see your orders here
+                      </p>
                     </div>
                   </td>
                 </tr>
