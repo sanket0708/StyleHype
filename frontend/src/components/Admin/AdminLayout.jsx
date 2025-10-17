@@ -10,6 +10,10 @@ const AdminLayout = () => {
     setIsSideBarOpen(!isSideBarOpen);
   };
 
+  const closeSideBar = () => {
+    setIsSideBarOpen(false);
+  };
+
   return (
     <div className="min-h-screen flex flex-col md:flex-row relative bg-gray-50">
       <div className="flex md:hidden p-4 bg-black text-white z-20 shadow-sm">
@@ -32,7 +36,7 @@ const AdminLayout = () => {
         } transition-transform duration-300 md:translate-x-0 md:static md:block z-20`}
       >
         {/*Sidebar content*/}
-        <AdminSidebar />
+        <AdminSidebar closeSideBar={closeSideBar} />
       </div>
 
       <div className="flex-grow p-6 md:p-8 overflow-auto">

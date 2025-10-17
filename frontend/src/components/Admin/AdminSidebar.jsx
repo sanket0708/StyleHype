@@ -8,7 +8,8 @@ import {
 } from "react-icons/fa";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 
-const AdminSidebar = () => {
+
+const AdminSidebar = ({closeSideBar}) => {
   const navigate = useNavigate();
   const handleLogout = () => {
     navigate("/");
@@ -25,7 +26,7 @@ const AdminSidebar = () => {
 
       <nav className="flex flex-col space-y-1">
         <NavLink
-          to="/admin/users"
+          to="/admin/users" onClick={closeSideBar}
           className={({ isActive }) =>
             isActive
               ? "bg-gray-100 text-gray-900 border border-gray-200 py-2.5 px-3 rounded flex items-center gap-2"
@@ -36,7 +37,7 @@ const AdminSidebar = () => {
           <span className="text-sm uppercase tracking-widest">Users</span>
         </NavLink>
         <NavLink
-          to="/admin/products"
+          to="/admin/products"  onClick={closeSideBar}
           className={({ isActive }) =>
             isActive
               ? "bg-gray-100 text-gray-900 border border-gray-200 py-2.5 px-3 rounded flex items-center gap-2"
@@ -47,7 +48,7 @@ const AdminSidebar = () => {
           <span className="text-sm uppercase tracking-widest">Products</span>
         </NavLink>
         <NavLink
-          to="/admin/orders"
+          to="/admin/orders"  onClick={closeSideBar}
           className={({ isActive }) =>
             isActive
               ? "bg-gray-100 text-gray-900 border border-gray-200 py-2.5 px-3 rounded flex items-center gap-2"
@@ -58,7 +59,7 @@ const AdminSidebar = () => {
           <span className="text-sm uppercase tracking-widest">Orders</span>
         </NavLink>
         <NavLink
-          to="/admin/shop"
+          to="/admin/shop"  onClick={closeSideBar}
           className={({ isActive }) =>
             isActive
               ? "bg-gray-100 text-gray-900 border border-gray-200 py-2.5 px-3 rounded flex items-center gap-2"
