@@ -70,6 +70,12 @@ const Navbar = () => {
         {/* icons */}
         <div className="flex items-center space-x-5">
           <Link
+            to="/admin"
+            className="hover:text-amber-500 transition-all duration-200 block bg-black rounded px-2 py-1 text-white text-sm"
+          >
+            Admin
+          </Link>
+          <Link
             to="/profile"
             className="hover:text-amber-500 transition-all duration-200"
           >
@@ -105,7 +111,7 @@ const Navbar = () => {
         }`}
       >
         <div className="flex justify-end p-4">
-          <button 
+          <button
             onClick={toggleNavDrawer}
             className="p-1 hover:text-amber-500 transition-colors duration-200"
           >
