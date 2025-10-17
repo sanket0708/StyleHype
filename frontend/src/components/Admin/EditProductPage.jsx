@@ -37,68 +37,80 @@ const EditProductPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(productData);
+    // console.log(productData);
   };
 
   return (
-    <div className="max-w-5xl mx-auto p-6 shadow rounded-md">
-      <h2 className="text-3xl font-bold mb-6">Edit Product</h2>
-      <form onSubmit={handleSubmit}>
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <h2 className="text-2xl md:text-3xl uppercase tracking-widest font-light mb-8">
+        Edit Product
+      </h2>
+      <div className="bg-white rounded-lg border border-gray-200 shadow-sm shadow-gray-900/5 p-6 sm:p-8">
         <div className="mb-6">
-          <label className="block font-semibold mb-2">Product Name</label>
+          <label className="block text-xs uppercase tracking-widest text-gray-600 mb-2">
+            Product Name
+          </label>
           <input
             type="text"
             name="name"
             value={productData.name}
             onChange={handleChange}
-            className="w-full border border-gray-300 rounded-md p-2"
+            className="w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
             required
           />
         </div>
         <div className="mb-6">
-          <label className="block font-semibold mb-2">Description</label>
+          <label className="block text-xs uppercase tracking-widest text-gray-600 mb-2">
+            Description
+          </label>
           <textarea
             name="description"
             value={productData.description}
             onChange={handleChange}
-            className="w-full border border-gray-300 rounded-md p-2"
+            className="w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
             rows={4}
             required
           />
         </div>
         <div className="mb-6">
-          <label className="block font-semibold mb-2">Price</label>
+          <label className="block text-xs uppercase tracking-widest text-gray-600 mb-2">
+            Price
+          </label>
           <input
             type="number"
             name="price"
             value={productData.price}
             onChange={handleChange}
-            className="w-full border border-gray-300 rounded-md p-2"
+            className="w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
           />
         </div>
         <div className="mb-6">
-          <label className="block font-semibold mb-2">Count In Stock</label>
+          <label className="block text-xs uppercase tracking-widest text-gray-600 mb-2">
+            Count In Stock
+          </label>
           <input
             type="number"
             name="countInStock"
             value={productData.countInStock}
             onChange={handleChange}
-            className="w-full border border-gray-300 rounded-md p-2"
+            className="w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
           />
         </div>
         <div className="mb-6">
-          <label className="block font-semibold mb-2">SKU</label>
+          <label className="block text-xs uppercase tracking-widest text-gray-600 mb-2">
+            SKU
+          </label>
           <input
             type="text"
             name="sku"
             value={productData.sku}
             onChange={handleChange}
-            className="w-full border border-gray-300 rounded-md p-2"
+            className="w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
           />
         </div>
 
         <div className="mb-6">
-          <label className="block font-semibold mb-2">
+          <label className="block text-xs uppercase tracking-widest text-gray-600 mb-2">
             Sizes (comma seperated)
           </label>
           <input
@@ -111,12 +123,12 @@ const EditProductPage = () => {
                 sizes: e.target.value.split(",").map((size) => size.trim()),
               })
             }
-            className="w-full border border-gray-300 rounded-md p-2"
+            className="w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
           />
         </div>
 
         <div className="mb-6">
-          <label className="block font-semibold mb-2">
+          <label className="block text-xs uppercase tracking-widest text-gray-600 mb-2">
             Colors (comma seperated)
           </label>
           <input
@@ -129,11 +141,13 @@ const EditProductPage = () => {
                 colors: e.target.value.split(",").map((color) => color.trim()),
               })
             }
-            className="w-full border border-gray-300 rounded-md p-2"
+            className="w-full rounded border border-gray-300 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
           />
         </div>
         <div className="mb-6">
-          <label className="block font-semibold mb-2">Upoad Image</label>
+          <label className="block text-xs uppercase tracking-widest text-gray-600 mb-2">
+            Upoad Image
+          </label>
           <input type="file" onChange={handleImageUpload} />
           <div className="flex gap-4 mt-4">
             {productData.images.map((image, index) => (
@@ -149,11 +163,11 @@ const EditProductPage = () => {
         </div>
         <button
           type="submit"
-          className="w-full bg-green-500 text-white py-2 rounded-md hover:bg-green-600 transition-colors"
+          className="w-full sm:w-auto bg-black hover:bg-gray-900 text-white py-2.5 px-6 rounded text-sm uppercase tracking-widest"
         >
           Upload Product
         </button>
-      </form>
+      </div>
     </div>
   );
 };
