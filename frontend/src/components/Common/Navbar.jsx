@@ -43,25 +43,25 @@ const Navbar = () => {
         {/* Center nav links */}
         <div className="hidden md:flex space-x-8">
           <Link
-            to="/collections/all"
+            to="/collections/all?gender=Men"
             className="text-gray-700 hover:text-amber-500 text-sm font-medium uppercase tracking-widest transition-all duration-200 hover:underline hover:underline-offset-4 hover:scale-105"
           >
             Men
           </Link>
           <Link
-            to="#"
+            to="/collections/all?gender=Women"
             className="text-gray-700 hover:text-amber-500 text-sm font-medium uppercase tracking-widest transition-all duration-200 hover:underline hover:underline-offset-4 hover:scale-105"
           >
             Women
           </Link>
           <Link
-            to="#"
+            to="/collections/all?category=Top Wear"
             className="text-gray-700 hover:text-amber-500 text-sm font-medium uppercase tracking-widest transition-all duration-200 hover:underline hover:underline-offset-4 hover:scale-105"
           >
             Top Wear
           </Link>
           <Link
-            to="#"
+            to="/collections/all?category=Bottom Wear"
             className="text-gray-700 hover:text-amber-500 text-sm font-medium uppercase tracking-widest transition-all duration-200 hover:underline hover:underline-offset-4 hover:scale-105"
           >
             Bottom Wear
@@ -122,28 +122,28 @@ const Navbar = () => {
           <h2 className="text-xl font-semibold text-gray-800 mb-8">Menu</h2>
           <nav className="space-y-6">
             <Link
-              to="#"
+              to="/collections/all?gender=Men"
               onClick={toggleNavDrawer}
               className="block text-gray-700 hover:text-amber-500 text-sm font-medium uppercase tracking-widest transition-colors duration-200"
             >
               Men
             </Link>
             <Link
-              to="#"
+              to="/collections/all?gender=Women"
               onClick={toggleNavDrawer}
               className="block text-gray-700 hover:text-amber-500 text-sm font-medium uppercase tracking-widest transition-colors duration-200"
             >
               Women
             </Link>
             <Link
-              to="#"
+              to="/collections/all?category=Top Wear"
               onClick={toggleNavDrawer}
               className="block text-gray-700 hover:text-amber-500 text-sm font-medium uppercase tracking-widest transition-colors duration-200"
             >
               Top Wear
             </Link>
             <Link
-              to="#"
+              to="/collections/all?category=Bottom Wear"
               onClick={toggleNavDrawer}
               className="block text-gray-700 hover:text-amber-500 text-sm font-medium uppercase tracking-widest transition-colors duration-200"
             >
