@@ -1,14 +1,18 @@
 import React, { useState } from "react";
 import signup from "../assets/signup.png";
 import { Link } from "react-router-dom";
+import { registerUser } from "../redux/slices/authSlice";
+import { useDispatch } from "react-redux";
 
 const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
+  const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    dispatch(registerUser({ name, email, password }));
   };
 
   return (
@@ -47,7 +51,10 @@ const Register = () => {
                     Sign up to start your fashion journey
                   </p>
 
-                  <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+                  <form
+                    onSubmit={handleSubmit}
+                    className="space-y-4 sm:space-y-6"
+                  >
                     <div className="group">
                       <label className="block text-sm font-semibold mb-2 sm:mb-3 text-gray-700 tracking-wide">
                         Name
