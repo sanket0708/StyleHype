@@ -8,10 +8,18 @@ import {
 import SearchBar from "./SearchBar";
 import CartDrawer from "../Layout/CartDrawer";
 import { IoMdClose } from "react-icons/io";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [navDrawerOpen, setNavDrawerOpen] = useState(false);
+  const { cart } = useSelector((state) => state.cart);
+  const { user } = useSelector((state) => state.auth);
+
+  const cartItemCount = cart?.products?.reduce(
+    (total, product) => total + product.quantity,
+    0 || 0
+  );
 
   const toggleNavDrawer = () => {
     setNavDrawerOpen(!navDrawerOpen);
@@ -69,12 +77,15 @@ const Navbar = () => {
         </div>
         {/* icons */}
         <div className="flex items-center space-x-5">
-          <Link
-            to="/admin"
-            className="hover:text-amber-500 transition-all duration-200 block bg-black rounded px-2 py-1 text-white text-sm"
-          >
-            Admin
-          </Link>
+          {user && user.role === "admin" && (
+            <Link
+              to="/admin"
+              className="hover:text-amber-500 transition-all duration-200 block bg-black rounded px-2 py-1 text-white text-sm"
+            >
+              Admin
+            </Link>
+          )}
+
           <Link
             to="/profile"
             className="hover:text-amber-500 transition-all duration-200"
@@ -86,9 +97,11 @@ const Navbar = () => {
             className="relative hover:text-amber-500 transition-all duration-200"
           >
             <HiOutlineShoppingBag className="h-6 w-6 cursor-pointer text-gray-700" />
-            <span className="absolute -top-1 bg-amber-500 text-white text-xs rounded-full px-2 py-0.5 shadow-md">
-              4
-            </span>
+            {cartItemCount > 0 && (
+              <span className="absolute -top-1 bg-amber-500 text-white text-xs rounded-full px-2 py-0.5 shadow-md">
+                {cartItemCount}
+              </span>
+            )}
           </button>
           {/* search icon */}
 

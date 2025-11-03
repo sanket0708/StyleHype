@@ -7,6 +7,7 @@ import {
   fetchProductDetails,
   fetchSimilarProducts,
 } from "../../redux/slices/productSlice";
+import { addToCart } from "../../redux/slices/cartSlice";
 
 // const selectedProduct = {
 //   name: "Stylish Jacket",
@@ -215,7 +216,7 @@ const ProductDetails = ({ productId }) => {
               <div className="mb-4">
                 <p className="text-gray-800 font-medium">Size</p>
                 <div className="flex gap-2 mt-2">
-                  {selectedProduct.size?.map((size) => (
+                  {selectedProduct.sizes?.map((size) => (
                     <button
                       key={size}
                       onClick={() => setSelectedSize(size)}

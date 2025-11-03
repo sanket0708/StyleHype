@@ -2,13 +2,21 @@ import React from "react";
 import { IoMdClose } from "react-icons/io";
 import CartContents from "../Cart/CartContents";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const CartDrawer = ({ drawerOpen, toggleCartDrawer }) => {
   const navigate = useNavigate();
+  const { user, guestId } = useSelector((state) => state.auth);
+  const { cart } = useSelector((state) => state.cart);
+  const userId = user ? user._id : null;
 
   const handleCheckout = () => {
     toggleCartDrawer();
-    navigate("/checkout");
+    if (!user) {
+      navigate("/login?redirect=checkout");
+    } else {
+      navigate("/checkout");
+    }
   };
 
   return (
@@ -30,21 +38,29 @@ const CartDrawer = ({ drawerOpen, toggleCartDrawer }) => {
         <h2 className="text-lg font-extrabold uppercase tracking-widest text-gray-900 mb-6">
           Your Cart
         </h2>
+        {cart && cart?.products?.length > 0 ? (
+          <CartContents cart={cart} userId={userId} guestId={guestId} />
+        ) : (
+          <p>Your cart is empty!</p>
+        )}
         {/* Component for the details */}
-        <CartContents />
       </div>
 
       <div className="p-6 bg-white border-t border-gray-100 sticky bottom-0">
-        <button
-          onClick={handleCheckout}
-          className="w-full cursor-pointer bg-amber-500 text-white py-3 rounded-lg font-bold uppercase tracking-widest shadow-md hover:bg-black hover:text-amber-400 transition-all duration-200"
-        >
-          Checkout
-        </button>
-        <p className="text-xs tracking-wide text-gray-500 mt-3 text-center">
-          Shipping fees, taxes, and any discounts will be applied during
-          checkout.
-        </p>
+        {cart && cart?.products?.length > 0 && (
+          <>
+            <button
+              onClick={handleCheckout}
+              className="w-full cursor-pointer bg-amber-500 text-white py-3 rounded-lg font-bold uppercase tracking-widest shadow-md hover:bg-black hover:text-amber-400 transition-all duration-200"
+            >
+              Checkout
+            </button>
+            <p className="text-xs tracking-wide text-gray-500 mt-3 text-center">
+              Shipping fees, taxes, and any discounts will be applied during
+              checkout.
+            </p>
+          </>
+        )}
       </div>
     </div>
   );

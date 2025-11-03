@@ -1,8 +1,31 @@
-import React from "react";
+import React, { useEffect } from "react";
 import MyOrdersPage from "./MyOrdersPage";
 import { HiOutlineUser, HiOutlineMail, HiOutlineLogout } from "react-icons/hi";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { logout } from "../redux/slices/authSlice";
+import { clearCart } from "../redux/slices/cartSlice";
+
+
 
 const Profile = () => {
+  const { user } = useSelector((state) => state.auth);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (!user) {
+      navigate("/login");
+    }
+  }, [user, navigate]);
+
+  const handleLogout = () => {
+    dispatch(logout());
+    dispatch(clearCart());
+    navigate("/login");
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-amber-50 via-white to-amber-100/50 relative overflow-hidden">
       {/* Background Elements - Hidden on mobile for better performance */}
@@ -47,12 +70,12 @@ const Profile = () => {
                   {/* User Details */}
                   <div className="text-center mb-4 sm:mb-6">
                     <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 mb-2">
-                      Alice Doe
+                      {user?.name}
                     </h2>
                     <div className="flex items-center justify-center text-gray-600 mb-3 sm:mb-4">
                       <HiOutlineMail className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2 flex-shrink-0" />
                       <span className="text-xs sm:text-sm md:text-base truncate">
-                        alice@example.com
+                        {user?.email}
                       </span>
                     </div>
                     <div className="inline-block bg-amber-100 text-amber-800 px-2 sm:px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wide">
@@ -62,7 +85,10 @@ const Profile = () => {
 
                   {/* Action Buttons */}
                   <div className="space-y-2 sm:space-y-3">
-                    <button className="w-full bg-red-500 hover:bg-red-600 text-white py-2.5 sm:py-3 px-3 sm:px-4 rounded-lg sm:rounded-xl font-semibold uppercase tracking-wider shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98] cursor-pointer flex items-center justify-center text-sm sm:text-base">
+                    <button
+                      onClick={handleLogout}
+                      className="w-full bg-red-500 hover:bg-red-600 text-white py-2.5 sm:py-3 px-3 sm:px-4 rounded-lg sm:rounded-xl font-semibold uppercase tracking-wider shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98] cursor-pointer flex items-center justify-center text-sm sm:text-base"
+                    >
                       <HiOutlineLogout className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2 flex-shrink-0" />
                       Logout
                     </button>
