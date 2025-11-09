@@ -30,6 +30,12 @@ const ProductManagement = () => {
       <h2 className="text-2xl md:text-3xl uppercase tracking-widest font-light mb-8">
         Product Management
       </h2>
+      <Link
+          to="/admin/products/create"
+          className="inline-flex items-center justify-center bg-black hover:bg-gray-900 text-white px-6 py-3 rounded text-sm uppercase tracking-widest"
+        >
+          + Create Product
+        </Link>
       <div className="bg-white rounded-lg border border-gray-200 shadow-sm shadow-gray-900/5 overflow-x-auto">
         <table className="min-w-full text-left">
           <thead>
