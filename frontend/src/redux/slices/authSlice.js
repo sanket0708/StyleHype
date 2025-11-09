@@ -33,7 +33,7 @@ export const loginUser = createAsyncThunk(
 
       return response.data.user;
     } catch (error) {
-      return rejectWithValue(error.response.data);
+      return rejectWithValue(error.response?.data?.message || "Login failed!");
     }
   }
 );
@@ -87,7 +87,7 @@ const authSlice = createSlice({
       })
       .addCase(loginUser.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.payload.message;
+        state.error = action.payload;
       })
       .addCase(registerUser.pending, (state) => {
         state.loading = true;
@@ -99,7 +99,7 @@ const authSlice = createSlice({
       })
       .addCase(registerUser.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.payload.message;
+        state.error = action.payload;
       });
   },
 });

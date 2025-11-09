@@ -12,7 +12,7 @@ const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
-  const { user, guestId, loading } = useSelector((state) => state.auth);
+  const { user, guestId, loading , error } = useSelector((state) => state.auth);
   const { cart } = useSelector((state) => state.cart);
 
   //get redirect paramter
@@ -109,7 +109,11 @@ const Login = () => {
                       {loading ? "Signing in..." : "Sign in"}
                     </button>
                   </form>
-
+                  {error && (
+                    <p className="mt-4 text-center text-sm text-red-600">
+                      {error}
+                    </p>
+                  )}
                   <p className="mt-4 sm:mt-6 text-center text-sm text-gray-600">
                     Don't have an account?{" "}
                     <Link
