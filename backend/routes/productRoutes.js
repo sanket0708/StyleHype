@@ -233,12 +233,16 @@ router.get("/", async (req, res) => {
 
 router.get("/best-seller", async (req, res) => {
   try {
-    const bestSeller = await Product.findOne().sort({ rating: -1 });
-    if (bestSeller) {
-      res.json(bestSeller);
-    } else {
-      res.status(404).json({ message: "No product found!" });
+    const topRated = await Product.find().sort({ rating: -1 }).limit(10);
+
+    if (!topRated || topRated.length === 0) {
+      return res.status(404).json({ message: "No product found!" });
     }
+
+    const randomIndex = Math.floor(Math.random() * topRated.length);
+    const randomBestSeller = topRated[randomIndex];
+
+    res.json(randomBestSeller);
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Server error!" });

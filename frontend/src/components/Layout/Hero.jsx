@@ -19,7 +19,7 @@ const Hero = () => {
             Explore fashion with rapid worldwide delivery.
           </p>
           <Link
-            to="#"
+            to="/collections/all"
             className="inline-block bg-white/90 backdrop-blur-sm text-gray-900 px-8 py-3 text-sm font-medium uppercase tracking-wider transition-all duration-300 hover:bg-white hover:scale-[1.02]"
           >
             Shop Now
