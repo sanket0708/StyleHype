@@ -985,6 +985,30 @@ const products = [
     rating: 4.7,
     numReviews: 22,
   },
+  {
+    name: "Modal Cashmere Ultralight Long Lace Shirt",
+    description:
+      "Discover unparalleled elegance and comfort with our modal cashmere ultralight long lace shirt, designed to offer a luxurious feel without the weight. Crafted from a premium blend of modal and cashmere, our long-sleeved shirt provides exceptional softness and breathability, making it perfect for year-round wear.",
+    price: 75,
+    discountPrice: 65,
+    countInStock: 30,
+    sku: "MCUL-00123",
+    category: "Top Wear",
+    brand: "MixAndMatch",
+    sizes: ["S", "M", "L"],
+    colors: ["Red", "Black", "White"],
+    collections: "Evening Collection",
+    material: "Polyester",
+    gender: "Women",
+    images: [
+      {
+        url: "https://www.intimissimi.com/dw/image/v2/BHHR_PRD/on/demandware.static/-/Sites-INT_EC_COM/default/dw882a1faa/images/CLD28P347J-M.jpg?sw=1600&sfrm=jpeg",
+        altText: "Long Lace shirt",
+      },
+    ],
+    rating: 4.9,
+    numReviews: 25,
+  },
 ];
 
 module.exports = products;

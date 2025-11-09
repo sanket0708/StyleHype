@@ -14,13 +14,13 @@ mongoose.connect(process.env.MONGO_URI);
 const seedData = async () => {
   try {
     await Product.deleteMany();
-    await User.deleteMany();
-    await Cart.deleteMany();
+    // await User.deleteMany();
+    // await Cart.deleteMany();
 
     //create a admin user
     const createdUser = await User.create({
       name: "Admin User",
-      email: "admin@example.com",
+      email: "admin@gmail.com",
       password: "admin54321",
       role: "admin",
     });
