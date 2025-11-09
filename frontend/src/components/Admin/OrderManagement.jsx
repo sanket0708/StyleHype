@@ -1,21 +1,33 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  fetchAllOrders,
+  updateOrderStatus,
+} from "../../redux/slices/adminOrderSlice";
 
 const OrderManagement = () => {
-  const orders = [
-    {
-      _id: 123123354,
-      user: {
-        name: "John doe",
-      },
-      totalPrice: 110,
-      status: "Processing",
-    },
-  ];
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const { user } = useSelector((state) => state.auth);
+  const { orders, loading, error } = useSelector((state) => state.adminOrders);
+
+  useEffect(() => {
+    if (!user || user.role !== "admin") {
+      navigate("/");
+    } else {
+      dispatch(fetchAllOrders());
+    }
+  }, [dispatch, user, navigate]);
 
   const handleStatusChange = (orderId, status) => {
     // console.log({ id: orderId, status });
+    dispatch(updateOrderStatus({ id: orderId, status }));
   };
 
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error : {error}</p>;
   return (
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-10">
       <h2 className="text-2xl md:text-3xl uppercase tracking-widest font-light mb-8">
@@ -49,8 +61,10 @@ const OrderManagement = () => {
                   <td className="py-3 px-4 font-medium text-gray-900 whitespace-nowrap">
                     #{order._id}
                   </td>
-                  <td className="py-3 px-4">{order.user.name}</td>
-                  <td className="py-3 px-4">${order.totalPrice}</td>
+                  <td className="py-3 px-4">
+                    {order.user?.name || "Guest/Unknown"}
+                  </td>
+                  <td className="py-3 px-4">${order.totalPrice.toFixed(2)}</td>
                   <td className="py-3 px-4">
                     <select
                       value={order.status}

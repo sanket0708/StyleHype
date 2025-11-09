@@ -5,7 +5,6 @@ import { registerUser } from "../redux/slices/authSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { mergeCart } from "../redux/slices/cartSlice";
 
-
 const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -13,7 +12,7 @@ const Register = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const location = useLocation();
-  const { user, guestId } = useSelector((state) => state.auth);
+  const { user, guestId, loading } = useSelector((state) => state.auth);
   const { cart } = useSelector((state) => state.cart);
 
   //get redirect paramter
@@ -119,7 +118,7 @@ const Register = () => {
                       type="submit"
                       className="w-full cursor-pointer bg-gradient-to-r from-amber-500 to-amber-500 text-white p-3 sm:p-4 rounded-xl sm:rounded-2xl font-semibold uppercase tracking-wider shadow-lg hover:shadow-xl hover:from-amber-600 hover:to-amber-700 transition-all duration-300 transform hover:scale-[1.02] active:scale-[0.98]"
                     >
-                      Sign Up
+                      {loading ? "Signing up..." : "Sign Up"}
                     </button>
                   </form>
 

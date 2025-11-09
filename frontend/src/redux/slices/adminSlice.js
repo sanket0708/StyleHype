@@ -48,7 +48,7 @@ export const updateUser = createAsyncThunk(
         },
       }
     );
-    response.data;
+    return response.data.user;
   }
 );
 

@@ -6,27 +6,38 @@ import {
   FaStore,
   FaUsers,
 } from "react-icons/fa";
+import { useDispatch } from "react-redux";
 import { Link, NavLink, useNavigate } from "react-router-dom";
+import { logout } from "../../redux/slices/authSlice";
+import { clearCart } from "../../redux/slices/cartSlice";
 
-
-const AdminSidebar = ({closeSideBar}) => {
+const AdminSidebar = ({ closeSideBar }) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const handleLogout = () => {
+    dispatch(logout());
+    dispatch(clearCart());
     navigate("/");
   };
 
   return (
     <div className="p-6">
       <div className="mb-6">
-        <Link to="/admin" className="text-xl uppercase tracking-widest font-light text-gray-900">
+        <Link
+          to="/admin"
+          className="text-xl uppercase tracking-widest font-light text-gray-900"
+        >
           StyleHype
         </Link>
       </div>
-      <h2 className="text-sm uppercase tracking-widest text-gray-600 mb-6 text-center">Admin Dashboard</h2>
+      <h2 className="text-sm uppercase tracking-widest text-gray-600 mb-6 text-center">
+        Admin Dashboard
+      </h2>
 
       <nav className="flex flex-col space-y-1">
         <NavLink
-          to="/admin/users" onClick={closeSideBar}
+          to="/admin/users"
+          onClick={closeSideBar}
           className={({ isActive }) =>
             isActive
               ? "bg-gray-100 text-gray-900 border border-gray-200 py-2.5 px-3 rounded flex items-center gap-2"
@@ -37,7 +48,8 @@ const AdminSidebar = ({closeSideBar}) => {
           <span className="text-sm uppercase tracking-widest">Users</span>
         </NavLink>
         <NavLink
-          to="/admin/products"  onClick={closeSideBar}
+          to="/admin/products"
+          onClick={closeSideBar}
           className={({ isActive }) =>
             isActive
               ? "bg-gray-100 text-gray-900 border border-gray-200 py-2.5 px-3 rounded flex items-center gap-2"
@@ -48,7 +60,8 @@ const AdminSidebar = ({closeSideBar}) => {
           <span className="text-sm uppercase tracking-widest">Products</span>
         </NavLink>
         <NavLink
-          to="/admin/orders"  onClick={closeSideBar}
+          to="/admin/orders"
+          onClick={closeSideBar}
           className={({ isActive }) =>
             isActive
               ? "bg-gray-100 text-gray-900 border border-gray-200 py-2.5 px-3 rounded flex items-center gap-2"
@@ -57,17 +70,6 @@ const AdminSidebar = ({closeSideBar}) => {
         >
           <FaClipboardList className="w-5 h-5" />
           <span className="text-sm uppercase tracking-widest">Orders</span>
-        </NavLink>
-        <NavLink
-          to="/admin/shop"  onClick={closeSideBar}
-          className={({ isActive }) =>
-            isActive
-              ? "bg-gray-100 text-gray-900 border border-gray-200 py-2.5 px-3 rounded flex items-center gap-2"
-              : "text-gray-700 hover:bg-gray-50 py-2.5 px-3 rounded flex items-center gap-2"
-          }
-        >
-          <FaStore className="w-5 h-5" />
-          <span className="text-sm uppercase tracking-widest">Shop</span>
         </NavLink>
       </nav>
       <div className="mt-6">
