@@ -459,14 +459,14 @@ const CreateProduct = () => {
             <button
               type="submit"
               disabled={loading}
-              className="flex-1 bg-black text-white py-3 rounded uppercase tracking-widest hover:bg-gray-900 disabled:bg-gray-400"
+              className="flex-1 cursor-pointer bg-black text-white py-3 rounded uppercase tracking-widest hover:bg-gray-900 disabled:bg-gray-400"
             >
               {loading ? "Creating..." : "Create Product"}
             </button>
             <button
               type="button"
               onClick={() => navigate("/admin/products")}
-              className="flex-1 bg-gray-200 text-gray-800 py-3 rounded uppercase tracking-widest hover:bg-gray-300"
+              className="flex-1 cursor-pointer bg-gray-200 text-gray-800 py-3 rounded uppercase tracking-widest hover:bg-gray-300"
             >
               Cancel
             </button>

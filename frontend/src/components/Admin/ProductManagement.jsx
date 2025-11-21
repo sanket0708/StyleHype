@@ -32,7 +32,7 @@ const ProductManagement = () => {
       </h2>
       <Link
           to="/admin/products/create"
-          className="inline-flex items-center justify-center bg-black hover:bg-gray-900 text-white px-6 py-3 rounded text-sm uppercase tracking-widest"
+          className="inline-flex items-center mb-5 justify-center bg-black hover:bg-gray-900 text-white px-6 py-3 rounded text-sm uppercase tracking-widest"
         >
           + Create Product
         </Link>
