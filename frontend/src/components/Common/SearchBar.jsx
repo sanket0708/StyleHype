@@ -48,16 +48,16 @@ const SearchBar = () => {
             />
             <button
               type="submit"
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-amber-500 transition-all duration-200"
+              className="absolute right-1 top-1/2 -translate-y-1/2 text-gray-500 hover:text-amber-500 transition-all duration-200"
             >
-              <HiMagnifyingGlass className="h-6 cursor-pointer w-6" />
+              <HiMagnifyingGlass className="h-5 cursor-pointer w-5" />
             </button>
           </div>
           {/* close button */}
           <button
             type="button"
             onClick={handleSearchToggle}
-            className="absolute right-8 top-1/2 -translate-y-1/2 text-gray-400 hover:text-black transition-all duration-200"
+            className="absolute right-11 top-1/2 -translate-y-1/2 text-gray-400 hover:text-black transition-all duration-200"
           >
             <HiMiniXMark className="h-7 w-7 cursor-pointer" />
           </button>

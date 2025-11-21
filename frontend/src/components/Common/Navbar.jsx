@@ -30,7 +30,7 @@ const Navbar = () => {
   };
   return (
     <>
-      <nav className="container mx-auto flex items-center justify-between py-3 px-6 bg-white border-b border-gray-200 shadow-sm shadow-gray-900/5">
+      <nav className="container mx-auto flex items-center justify-between py-3 px-4 sm:px-6 bg-white border-b border-gray-200 shadow-sm shadow-gray-900/5 overflow-x-hidden">
         {/* left logo */}
         <div>
           <Link
@@ -111,7 +111,7 @@ const Navbar = () => {
             onClick={toggleNavDrawer}
             className="md:hidden hover:text-amber-500 transition-all duration-200"
           >
-            <HiBars3BottomRight className="h-6 w-6 text-gray-700" />
+            <HiBars3BottomRight className="h-5 w-5 text-gray-700 relative right-4" />
           </button>
         </div>
       </nav>
